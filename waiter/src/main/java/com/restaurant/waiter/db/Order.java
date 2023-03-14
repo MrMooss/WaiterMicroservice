@@ -1,24 +1,27 @@
 package com.restaurant.waiter.db;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "Waiter")
 @Data
+@EqualsAndHashCode()
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Waiter {
+@Schema(description = "Asztal")
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private long id;
 
     @Column(name = "asztal_id")
-    private long asztalID;
+    private long tableID;
 
-    private String csoport;
+    private String group;
 
     @Column(name = "menu_id")
     private long menuID;
@@ -26,7 +29,7 @@ public class Waiter {
     @Column(name = "menu_neve")
     private String menuNeve;
 
-    private String leiras;
+    private String desc;
 
     private byte db;
 
@@ -36,14 +39,23 @@ public class Waiter {
     private String hely;
 
     @Column(name = "egyseg_ar")
-    private double egysegAr;
+    private double price;
 
     @Column(name = "osszes_ar")
-    private double osszesAr;
+    private double sumPrice;
 
     @Column(name = "created_time_stamp")
     private Timestamp createdTimeStamp;
 
     @Column(name = "modified_time_stamp")
     private Timestamp modifiedTimeStamp;
+
+    @Builder
+    public Order(long tableID, String group, long menuID, String desc, byte db) {
+        this.tableID = tableID;
+        this.group = group;
+        this.menuID = menuID;
+        this.desc = desc;
+        this.db = db;
+    }
 }
