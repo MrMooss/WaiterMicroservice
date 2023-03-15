@@ -1,4 +1,4 @@
-package com.restaurant.waiter.db;
+package com.restaurant.waiter.model;
 
 public enum Status {
     PENDING,

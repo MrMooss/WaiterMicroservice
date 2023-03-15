@@ -3,15 +3,11 @@ package com.restaurant.waiter.Controller;
 import com.restaurant.waiter.Helper.CreateDTO;
 import com.restaurant.waiter.Helper.Mapper;
 import com.restaurant.waiter.Service.OrderRepository;
-import com.restaurant.waiter.db.Order;
+import com.restaurant.waiter.model.Order;
 import io.swagger.v3.oas.annotations.*;
 import io.swagger.v3.oas.annotations.responses.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.restaurant.waiter.db.Status;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/order")

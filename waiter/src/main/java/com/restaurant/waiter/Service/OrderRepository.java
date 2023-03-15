@@ -1,7 +1,8 @@
 package com.restaurant.waiter.Service;
-import com.restaurant.waiter.db.Order;
+
+import com.restaurant.waiter.model.Order;
 import org.springframework.data.repository.CrudRepository;
-import com.restaurant.waiter.db.Status;
+import com.restaurant.waiter.model.Status;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
