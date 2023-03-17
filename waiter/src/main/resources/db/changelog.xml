@@ -8,16 +8,16 @@
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="asztal_id" type="BIGINT">
+            <column name="tableid" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
             <column name="group" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
-            <column name="menu_id" type="BIGINT">
+            <column name="menuid" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="menu_neve" type="VARCHAR(255)">
+            <column name="menu_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="desc" type="VARCHAR(255)">
@@ -29,13 +29,13 @@
             <column name="status" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="hely" type="VARCHAR(255)">
+            <column name="place" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
-            <column name="egyseg_ar" type="DOUBLE">
+            <column name="price" type="DOUBLE">
                 <constraints nullable="false"/>
             </column>
-            <column name="osszes_ar" type="DOUBLE">
+            <column name="priceSum" type="DOUBLE">
                 <constraints nullable="false"/>
             </column>
             <column name="created_time_stamp" type="TIMESTAMP">

@@ -19,20 +19,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @OpenAPIDefinition(
 		servers = {
-				@Server(url = "http://localhost:8080/order", description = "local dev") },
+				@Server(url = "http://localhost:8080/order", description = "local") },
 
 		info = @Info(
 				title = "Waiter API",
-				version = "v1",
+				version = "",
 				description = "description = \"Waiter API for Graphical User Interface ."))
 
 @Configuration
-@SpringBootApplication
 @EnableWebMvc
-@EnableAutoConfiguration
-@ComponentScan(basePackages = "com.restaurant.waiter")
-@EnableJpaRepositories("com.restaurant.waiter.service")
+@EnableJpaRepositories("com.restaurant.waiter.Service")
 @EntityScan("com.restaurant.waiter.model")
+@SpringBootApplication(scanBasePackages = "com.restaurant.waiter")
 public class WaiterApiApplication {
 
 	public static void main(String[] args) {

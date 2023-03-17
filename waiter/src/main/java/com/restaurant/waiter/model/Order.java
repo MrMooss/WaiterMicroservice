@@ -18,15 +18,15 @@ public class Order {
     @Column(name = "id", updatable = false, nullable = false)
     private long id;
 
-    @Column(name = "asztal_id")
+    @Column(name = "tableid")
     private long tableID;
 
     private String group;
 
-    @Column(name = "menu_id")
+    @Column(name = "menuid")
     private long menuID;
 
-    @Column(name = "menu_neve")
+    @Column(name = "menu_name")
     private String menuNeve;
 
     private String desc;
@@ -36,12 +36,12 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private String hely;
+    private String place;
 
-    @Column(name = "egyseg_ar")
+    @Column(name = "price")
     private double price;
 
-    @Column(name = "osszes_ar")
+    @Column(name = "priceSum")
     private double sumPrice;
 
     @Column(name = "created_time_stamp")

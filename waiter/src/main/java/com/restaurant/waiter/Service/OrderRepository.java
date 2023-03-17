@@ -12,4 +12,5 @@ public interface OrderRepository extends CrudRepository<Order, Long>{
     List<Order> findByAsztalID(long asztalID);
     Order findByIdAndStatus(long id, Status status);
     List<Order> findByAsztalIDAndCsoport(long asztalID, String Csoport);
+
 }
