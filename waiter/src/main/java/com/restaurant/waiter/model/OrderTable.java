@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Schema(description = "Asztal")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Order {
+public class OrderTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
@@ -26,10 +26,9 @@ public class Order {
     @Schema(description = "Asztal azonosítója")
     private long tableID;
 
-    @NotBlank(message = "error.order.group.notset")
-    @Min(value = 20, message = "error.order.group.min")
+    @NotBlank(message = "error.order.tableGroup.notset")
     @Schema(description = "Csoport")
-    private String group;
+    private String tableGroup;
 
     @Column(name = "menuid")
     @Schema(description = "Étel azonosítója a menün")
@@ -40,7 +39,7 @@ public class Order {
     private String menuNeve;
 
     @Schema(description = "Leírás")
-    private String desc;
+    private String orderDesc;
 
     @Min(value = 1, message = "error.order.quantity.min")
     @Schema(description = "Mennyiség")
@@ -74,11 +73,11 @@ public class Order {
     private Timestamp modifiedTimeStamp;
 
     @Builder
-    public Order(long tableID, String group, long menuID, String desc, byte db) {
+    public OrderTable(long tableID, String tableGroup, long menuID, String orderDesc, byte db) {
         this.tableID = tableID;
-        this.group = group;
+        this.tableGroup = tableGroup;
         this.menuID = menuID;
-        this.desc = desc;
+        this.orderDesc = orderDesc;
         this.db = db;
     }
 }

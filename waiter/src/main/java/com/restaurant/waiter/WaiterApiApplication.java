@@ -16,6 +16,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.oas.annotations.EnableOpenApi;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 @OpenAPIDefinition(
 		servers = {
@@ -23,11 +30,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 		info = @Info(
 				title = "Waiter API",
-				version = "",
-				description = "description = \"Waiter API for Graphical User Interface ."))
+				version = "v0.5",
+				description = "Waiter API for Graphical User Interface."))
 
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
+@EnableOpenApi
 @EnableJpaRepositories("com.restaurant.waiter.Service")
 @EntityScan("com.restaurant.waiter.model")
 @SpringBootApplication(scanBasePackages = "com.restaurant.waiter")
@@ -46,5 +54,4 @@ public class WaiterApiApplication {
 			}
 		};
 	}
-
 }
