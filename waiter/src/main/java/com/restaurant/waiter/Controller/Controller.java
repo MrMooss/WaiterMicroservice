@@ -5,9 +5,13 @@ import com.restaurant.waiter.Service.OrderRepository;
 import com.restaurant.waiter.model.OrderTable;
 import com.restaurant.waiter.model.Status;
 import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.*;
 import io.swagger.v3.oas.annotations.responses.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -24,9 +28,19 @@ public class Controller {
     private Mapper mapper;
 
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Sikeres rendelés"),
-            @ApiResponse(responseCode = "500", description = "Rendelés nem lehetséges")
+            @ApiResponse(responseCode = "200", description = "Sikeres lekérdezés",
+                    content = {@Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderTable.class)))}),
     })
+
+
+    @Operation(summary = "Minden lekérdezése")
+    @GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<OrderTable> getAll(){
+        List<OrderTable> orderTables = orderRepository.findAll();
+
+        return orderTables;
+    }
 
     @Operation(summary = "Rendelés felvétel")
     @PostMapping(path = "/save")
@@ -37,6 +51,11 @@ public class Controller {
     }
 
     //Vendégek tájékosztatása
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sikeres lekérdezés",
+                    content = {@Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderTable.class)))}),
+    })
     @Operation(summary = "Vendegek tajekoztatasa")
     @GetMapping(path = "/{tableID}")
     public List<InfDTO> informGuest(@Parameter(description = "Asztal azonosító") @PathVariable(name = "tableID") long tableID){
