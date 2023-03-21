@@ -45,6 +45,34 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <insert tableName="OrderTable">
+            <column name="tableid" value="1"/>
+            <column name="tableGroup" value="Group1"/>
+            <column name="menuid" value="101"/>
+            <column name="menu_name" value="Burger"/>
+            <column name="orderDesc" value="No Cheese"/>
+            <column name="db" value="1"/>
+            <column name="status" value="In Progress"/>
+            <column name="place" value="To Go"/>
+            <column name="price" value="5.99"/>
+            <column name="priceSum" value="5.99"/>
+            <column name="created_time_stamp" value="2022-01-01 10:00:00"/>
+            <column name="modified_time_stamp" value="2022-01-01 10:01:00"/>
+        </insert>
+        <insert tableName="OrderTable">
+            <column name="tableid" value="2"/>
+            <column name="tableGroup" value="Group2"/>
+            <column name="menuid" value="102"/>
+            <column name="menu_name" value="Pizza"/>
+            <column name="orderDesc" value="Extra Cheese"/>
+            <column name="db" value="1"/>
+            <column name="status" value="In Progress"/>
+            <column name="place" value="To Go"/>
+            <column name="price" value="9.99"/>
+            <column name="priceSum" value="9.99"/>
+            <column name="created_time_stamp" value="2022-01-02 12:00:00"/>
+            <column name="modified_time_stamp" value="2022-01-02 12:02:00"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
