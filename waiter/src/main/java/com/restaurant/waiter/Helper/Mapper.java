@@ -11,6 +11,9 @@ public class Mapper {
     public OrderTable EntityFromCreateDTO(CreateDTO dto) {
         OrderTable orderTable = new OrderTable(dto.tableID, dto.tableGroup, dto.menuID, dto.desc, dto.db);
         orderTable.setCreatedTimeStamp(new Timestamp(System.currentTimeMillis()));
+        orderTable.setPrice(1);
+        orderTable.setSumPrice(1);
+        orderTable.setPlace("kitchen");
 
         return orderTable;
     }

@@ -95,9 +95,10 @@ public class Controller {
     @Operation(summary = "Fizetés kérése")
     @PostMapping(path = "/pay")
     public void pay(@Parameter(description = "Fizetés") @RequestBody PayDTO pPayDTO) {
-        OrderTable orderTable = orderRepository.findByTableIDAndTableGroup(pPayDTO.getTableID(), pPayDTO.getTableGroup());
+        OrderTable order = orderRepository.findByTableIDAndTableGroup(pPayDTO.getTableID(), pPayDTO.getTableGroup());
+        order.setStatus(Status.PAID);
 
-        orderTable.setStatus(Status.PAID);
+        orderRepository.save(order);
     }
 
 }
