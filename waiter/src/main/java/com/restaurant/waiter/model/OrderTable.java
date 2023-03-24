@@ -6,11 +6,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+
+
 import java.sql.Timestamp;
 
 @Data
 @EqualsAndHashCode()
 @NoArgsConstructor
+@Table(name = "ordertable")
 @Schema(description = "Asztal")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -38,6 +41,7 @@ public class OrderTable {
     @Schema(description = "Étel megnevezése a menüben")
     private String menuNeve;
 
+    @Column(name = "orderDesc")
     @Schema(description = "Leírás")
     private String orderDesc;
 
@@ -58,7 +62,7 @@ public class OrderTable {
     private double price;
 
     @DecimalMin(value = "0.01", message = "error.order.sumprice.min")
-    @Column(name = "priceSum")
+    @Column(name = "pricesum")
     @Schema(description = "Ár összesen")
     private double sumPrice;
 

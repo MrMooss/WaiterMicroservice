@@ -24,7 +24,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 		info = @Info(
 				title = "Waiter API",
-				version = "v0.5",
+				version = "v0.8",
 				description = "Waiter API for Graphical User Interface."))
 
 @Configuration

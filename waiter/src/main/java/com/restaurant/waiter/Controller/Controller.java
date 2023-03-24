@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class Controller {
         orderTable.setMenuID(pModDTO.getMenuID());
         orderTable.setOrderDesc(pModDTO.getDesc());
         orderTable.setDb(pModDTO.getDb());
-
+        orderTable.setModifiedTimeStamp(new Timestamp(System.currentTimeMillis()));
         orderRepository.save(orderTable);
     }
 

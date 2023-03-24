@@ -137,6 +137,44 @@
 			</plugin>
 
 			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<version>4.4.1</version>
+				<configuration>
+					<images>
+						<image>
+							<name>atimo/WatierApi</name>
+							<build>
+								<dockerFileDir>${project.basedir}/src/main/resources/docker/</dockerFileDir>
+								<assembly>
+									<descriptorRef>artifact</descriptorRef>
+								</assembly>
+								<tags>
+									<tag>table-latest</tag>
+									<tag>table-7.0</tag>
+								</tags>
+								<assembly>
+									<inline>
+										<files>
+											<file>
+												<source>${project.build.directory}/table-spring.jar</source>
+												<outputDirectory>./opt</outputDirectory>
+												<destName>table-spring.jar</destName>
+											</file>
+										</files>
+									</inline>
+								</assembly>
+							</build>
+						</image>
+					</images>
+					<authConfig>
+						<username>atimo2</username>
+						<password>TDMwN4DG43</password>
+					</authConfig>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>4.2.2</version>

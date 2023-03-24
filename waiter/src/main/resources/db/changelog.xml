@@ -4,23 +4,23 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="1" author="Atimo">
-        <createTable tableName="OrderTable">
+        <createTable tableName="ordertable">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="tableid" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="tableGroup" type="VARCHAR(255)">
+            <column name="tablegroup" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
             <column name="menuid" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
             <column name="menu_name" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
-            <column name="orderDesc" type="VARCHAR(255)">
+            <column name="orderdesc" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
             <column name="db" type="TINYINT">
@@ -35,41 +35,44 @@
             <column name="price" type="DOUBLE">
                 <constraints nullable="false"/>
             </column>
-            <column name="priceSum" type="DOUBLE">
+            <column name="pricesum" type="DOUBLE">
                 <constraints nullable="false"/>
             </column>
             <column name="created_time_stamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
             <column name="modified_time_stamp" type="TIMESTAMP">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
-        <insert tableName="OrderTable">
+    </changeSet>
+
+    <changeSet id="init" author="atimo">
+        <insert tableName="ordertable">
             <column name="tableid" value="1"/>
-            <column name="tableGroup" value="Group1"/>
+            <column name="tablegroup" value="Group1"/>
             <column name="menuid" value="101"/>
             <column name="menu_name" value="Burger"/>
-            <column name="orderDesc" value="No Cheese"/>
+            <column name="orderdesc" value="No Cheese"/>
             <column name="db" value="1"/>
-            <column name="status" value="In Progress"/>
+            <column name="status" value="IN_PROGRESS"/>
             <column name="place" value="To Go"/>
             <column name="price" value="5.99"/>
-            <column name="priceSum" value="5.99"/>
+            <column name="pricesum" value="5.99"/>
             <column name="created_time_stamp" value="2022-01-01 10:00:00"/>
             <column name="modified_time_stamp" value="2022-01-01 10:01:00"/>
         </insert>
-        <insert tableName="OrderTable">
+        <insert tableName="ordertable">
             <column name="tableid" value="2"/>
-            <column name="tableGroup" value="Group2"/>
+            <column name="tablegroup" value="Group2"/>
             <column name="menuid" value="102"/>
             <column name="menu_name" value="Pizza"/>
-            <column name="orderDesc" value="Extra Cheese"/>
+            <column name="orderdesc" value="Extra Cheese"/>
             <column name="db" value="1"/>
-            <column name="status" value="In Progress"/>
+            <column name="status" value="IN_PROGRESS"/>
             <column name="place" value="To Go"/>
             <column name="price" value="9.99"/>
-            <column name="priceSum" value="9.99"/>
+            <column name="pricesum" value="9.99"/>
             <column name="created_time_stamp" value="2022-01-02 12:00:00"/>
             <column name="modified_time_stamp" value="2022-01-02 12:02:00"/>
         </insert>
