@@ -143,23 +143,22 @@
 				<configuration>
 					<images>
 						<image>
-							<name>atimo/WatierApi</name>
+							<name>watierapi</name>
 							<build>
 								<dockerFileDir>${project.basedir}/src/main/resources/docker/</dockerFileDir>
 								<assembly>
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
 								<tags>
-									<tag>table-latest</tag>
-									<tag>table-7.0</tag>
+									<tag>waiter-latest</tag>
 								</tags>
 								<assembly>
 									<inline>
 										<files>
 											<file>
-												<source>${project.build.directory}/table-spring.jar</source>
+												<source>${project.build.directory}/orderTable.jar</source>
 												<outputDirectory>./opt</outputDirectory>
-												<destName>table-spring.jar</destName>
+												<destName>orderTable.jar</destName>
 											</file>
 										</files>
 									</inline>
@@ -169,7 +168,7 @@
 					</images>
 					<authConfig>
 						<username>atimo2</username>
-						<password>TDMwN4DG43</password>
+						<password>SuperSecurePW11</password>
 					</authConfig>
 				</configuration>
 			</plugin>
