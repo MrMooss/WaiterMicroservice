@@ -17,3 +17,22 @@ services:
     restart: on-failure
     volumes:
       - D:/PostgresData:/var/lib/postgresql/data
+
+  keycloak:
+    image: jboss/keycloak:latest
+    ports:
+      - "6080:8080"
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=atimopw
+      - DB_VENDOR=postgres
+      - DB_USER=atimo
+      - DB_PASSWORD=atimopw
+      - DB_ADDR=db
+      - DB_DATABASE=mydb
+      - DB_PORT=5432
+      - KEYCLOAK_IMPORT=/tmp/realm-export.json
+    volumes:
+      - ${PWD}/realm-export:/tmp
+    depends_on:
+      - db

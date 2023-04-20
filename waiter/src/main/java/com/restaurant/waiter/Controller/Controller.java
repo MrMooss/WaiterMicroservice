@@ -44,7 +44,9 @@ public class Controller {
     })
     @Operation(
             security = {
-                    @SecurityRequirement(name = "waiter",scopes = {"orderTable"}),
+                    @SecurityRequirement(name = "apikey",scopes = {"orderTable"}),
+                    @SecurityRequirement(name = "openid",scopes = {"orderTable"}),
+                    @SecurityRequirement(name = "oauth2",scopes = {"orderTable"}),
             },
             summary = "Minden lekérdezése")
 
