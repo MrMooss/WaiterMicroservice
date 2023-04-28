@@ -3,11 +3,13 @@ package com.restaurant.waiter.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+//import jakarta.persistence.*;
+//import jakarta.validation.constraints.*;
 import lombok.*;
 
 
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.sql.Timestamp;
 
 @Data

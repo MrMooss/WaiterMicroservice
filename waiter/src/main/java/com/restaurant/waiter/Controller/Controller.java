@@ -44,9 +44,9 @@ public class Controller {
     })
     @Operation(
             security = {
-                    @SecurityRequirement(name = "apikey",scopes = {"orderTable"}),
-                    @SecurityRequirement(name = "openid",scopes = {"orderTable"}),
-                    @SecurityRequirement(name = "oauth2",scopes = {"orderTable"}),
+                    @SecurityRequirement(name = "apikey",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "openid",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "oauth2",scopes = {"waiter"}),
             },
             summary = "Minden lekérdezése")
 
@@ -57,7 +57,25 @@ public class Controller {
         return orderTables;
     }
 
-    @Operation(summary = "Rendelés felvétel")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sikeres lekérdezés",
+                    content = {@Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderTable.class)))}),
+            @ApiResponse(responseCode = "403", description = "Nincs megfelelő jogosultságod",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "401", description = "Lejárt token",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "302", description = "Nincs bejelentkezve, átirányítás a login oldalra",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "500", description = "Asztal már létezik",
+                    content = { @Content(mediaType = "application/json") })
+    })
+    @Operation(
+            security = {
+                    @SecurityRequirement(name = "apikey",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "openid",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "oauth2",scopes = {"waiter"}),
+            },summary = "Rendelés felvétel")
     @PostMapping(path = "/save")
     public void save(@Parameter(description = "Rendelés", required = true) @RequestBody(required = true) CreateDTO pData) throws Exception{
         OrderTable orderTable = mapper.EntityFromCreateDTO(pData);
@@ -83,7 +101,25 @@ public class Controller {
     }
 
     //Rendelés módosítása
-    @Operation(summary = "Rendelés módosítása")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sikeres lekérdezés",
+                    content = {@Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderTable.class)))}),
+            @ApiResponse(responseCode = "403", description = "Nincs megfelelő jogosultságod",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "401", description = "Lejárt token",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "302", description = "Nincs bejelentkezve, átirányítás a login oldalra",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "500", description = "Asztal már létezik",
+                    content = { @Content(mediaType = "application/json") })
+    })
+    @Operation(
+            security = {
+                    @SecurityRequirement(name = "apikey",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "openid",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "oauth2",scopes = {"waiter"}),
+            }, summary = "Rendelés módosítása")
     @PatchMapping(path = "/{id}-mod")
     public void modify(@Parameter(description = "Rendelés azonosító") @PathVariable(name = "id") long pID, @Parameter(description = "Rendelés módosítás") @RequestBody ModDTO pModDTO){
         OrderTable orderTable = orderRepository.findById(pID).get();
@@ -96,7 +132,25 @@ public class Controller {
     }
 
     //Étel kivitele
-    @Operation(summary = "Étel kihozása")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sikeres lekérdezés",
+                    content = {@Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderTable.class)))}),
+            @ApiResponse(responseCode = "403", description = "Nincs megfelelő jogosultságod",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "401", description = "Lejárt token",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "302", description = "Nincs bejelentkezve, átirányítás a login oldalra",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "500", description = "Asztal már létezik",
+                    content = { @Content(mediaType = "application/json") })
+    })
+    @Operation(
+            security = {
+                    @SecurityRequirement(name = "apikey",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "openid",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "oauth2",scopes = {"waiter"}),
+            }, summary = "Étel kihozása")
     @PatchMapping(path = "/{id}-serve")
     public void serving(@Parameter(description = "Rendelés ID") @PathVariable(name = "id") long ID){
         OrderTable orderTable = orderRepository.findById(ID).get();
@@ -107,7 +161,25 @@ public class Controller {
     }
 
     //Fizetés
-    @Operation(summary = "Fizetés kérése")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sikeres lekérdezés",
+                    content = {@Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = OrderTable.class)))}),
+            @ApiResponse(responseCode = "403", description = "Nincs megfelelő jogosultságod",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "401", description = "Lejárt token",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "302", description = "Nincs bejelentkezve, átirányítás a login oldalra",
+                    content = { @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "500", description = "Asztal már létezik",
+                    content = { @Content(mediaType = "application/json") })
+    })
+    @Operation(
+            security = {
+                    @SecurityRequirement(name = "apikey",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "openid",scopes = {"waiter"}),
+                    @SecurityRequirement(name = "oauth2",scopes = {"waiter"}),
+            }, summary = "Fizetés kérése")
     @PostMapping(path = "/pay")
     public void pay(@Parameter(description = "Fizetés") @RequestBody PayDTO pPayDTO) {
         OrderTable order = orderRepository.findByTableIDAndTableGroup(pPayDTO.getTableID(), pPayDTO.getTableGroup());
