@@ -1,4 +1,4 @@
-package utils.validation;
+package com.restaurant.waiter.utils.validation;
 
 import lombok.Builder;
 import lombok.Data;

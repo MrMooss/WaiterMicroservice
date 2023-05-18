@@ -1,6 +1,5 @@
-package utils.request;
+package com.restaurant.waiter.utils.request;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static utils.logging.CustomRequestLoggingFilter.REQUEST_ID;
-import static utils.logging.CustomRequestLoggingFilter.USER_ID;
+import static com.restaurant.waiter.utils.logging.CustomRequestLoggingFilter.REQUEST_ID;
+import static com.restaurant.waiter.utils.logging.CustomRequestLoggingFilter.USER_ID;
 
 @Component
 @Slf4j

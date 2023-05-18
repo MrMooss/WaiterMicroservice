@@ -1,4 +1,4 @@
-package utils.logging;
+package com.restaurant.waiter.utils.logging;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -19,11 +19,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import static net.logstash.logback.argument.StructuredArguments.keyValue;
 
-import utils.request.RequestBean;
+import com.restaurant.waiter.utils.request.RequestBean;
 
 
 import static net.logstash.logback.argument.StructuredArguments.keyValue;
@@ -36,11 +35,11 @@ public class CustomLogger {
     @Autowired
     RequestBean requestScopedBean;
 
-    @Pointcut(value = "@within(hu.yokudlela.table.utils.logging.AspectLogger) && execution(public * *(..))")
+    @Pointcut(value = "@within(com.restaurant.waiter.utils.logging.AspectLogger) && execution(public * *(..))")
     @Order(1)
     public boolean executionOfAnyPublicMethodInAtLoggedType() {return true;}
 
-    @Pointcut(value = "execution(* *(..)) && @annotation(hu.yokudlela.table.utils.logging.AspectLogger)")
+    @Pointcut(value = "execution(* *(..)) && @annotation(com.restaurant.waiter.utils.logging.AspectLogger)")
     @Order(2)
     public boolean executionOfLoggedMethod() {return true;}
 

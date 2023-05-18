@@ -1,4 +1,4 @@
-package utils.logging;
+package com.restaurant.waiter.utils.logging;
 
 import java.lang.annotation.*;
 

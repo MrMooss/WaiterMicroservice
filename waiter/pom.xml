@@ -182,7 +182,7 @@
 							<goal>repackage</goal>
 						</goals>
 						<configuration>
-							<mainClass>com.restaurant.waiter.Spring.WaiterApiApplication</mainClass>
+							<mainClass>com.restaurant.waiter.WaiterApiApplication</mainClass>
 						</configuration>
 					</execution>
 				</executions>

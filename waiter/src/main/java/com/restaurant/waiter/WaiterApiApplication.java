@@ -1,5 +1,6 @@
-package com.restaurant.waiter.Spring;
+package com.restaurant.waiter;
 
+import com.restaurant.waiter.Spring.ApplicationContextProvider;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -15,8 +16,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.*;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.context.WebApplicationContext;
-import utils.request.RequestBean;
-import utils.validation.ValidationRestDataExceptionHandler;
+import com.restaurant.waiter.utils.request.RequestBean;
+import com.restaurant.waiter.utils.validation.ValidationRestDataExceptionHandler;
 
 @SecurityScheme(
 		type = SecuritySchemeType.OAUTH2,

@@ -20,7 +20,7 @@ services:
       - '5432:5432'
     restart: on-failure
     volumes:
-      - C:\Users\Attila\Documents\PostgresData:/var/lib/postgresql/data
+      - D:/PostgresData:/var/lib/postgresql/data
 
   keycloak:
     image: jboss/keycloak:latest
@@ -43,7 +43,7 @@ services:
   mongo:
     image: mongo:latest
     volumes:
-      - ${PWD}/../../disks/mongo:/data/db
+      - D:/mongo:/data/db
   #      networks:
   #        - graylog
   elasticsearch:
@@ -54,7 +54,7 @@ services:
       - network.host=0.0.0.0
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
-      - ${PWD}/../../disks/elastic:/usr/share/elasticsearch/data
+      - D:/elastic:/usr/share/elasticsearch/data
     ulimits:
       memlock:
         soft: -1

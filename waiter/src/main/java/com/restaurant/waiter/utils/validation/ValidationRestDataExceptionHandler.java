@@ -1,4 +1,4 @@
-package utils.validation;
+package com.restaurant.waiter.utils.validation;
 
 import com.restaurant.waiter.Service.BusinessException;
 import lombok.extern.slf4j.Slf4j;

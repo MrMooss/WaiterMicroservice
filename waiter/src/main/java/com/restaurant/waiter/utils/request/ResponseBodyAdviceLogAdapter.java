@@ -1,4 +1,4 @@
-package utils.request;
+package com.restaurant.waiter.utils.request;
 
 import lombok.extern.slf4j.Slf4j;
 import net.logstash.logback.argument.StructuredArguments;
@@ -10,7 +10,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import utils.logging.CustomRequestLoggingFilter;
+import com.restaurant.waiter.utils.logging.CustomRequestLoggingFilter;
 
 import javax.servlet.http.HttpServletRequest;
 
