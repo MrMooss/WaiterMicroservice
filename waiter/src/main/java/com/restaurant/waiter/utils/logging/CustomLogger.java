@@ -25,8 +25,6 @@ import static net.logstash.logback.argument.StructuredArguments.keyValue;
 import com.restaurant.waiter.utils.request.RequestBean;
 
 
-import static net.logstash.logback.argument.StructuredArguments.keyValue;
-
 @Component
 @Aspect
 @Slf4j(topic = "MethodCall")
