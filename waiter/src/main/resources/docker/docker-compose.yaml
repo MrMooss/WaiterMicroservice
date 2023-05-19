@@ -20,14 +20,13 @@ services:
       - '5432:5432'
     restart: on-failure
     volumes:
-      - D:/PostgresData:/var/lib/postgresql/data
+      - C:\Users\Attila\Documents\PostgresData:/var/lib/postgresql/data
 
   keycloak:
     image: jboss/keycloak:latest
     ports:
       - "6080:8080"
     environment:
-      - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=atimopw
       - DB_VENDOR=postgres
       - DB_USER=atimo
@@ -43,7 +42,7 @@ services:
   mongo:
     image: mongo:latest
     volumes:
-      - D:/mongo:/data/db
+      - C:\Users\Attila\Documents\mongo:/data/db
   #      networks:
   #        - graylog
   elasticsearch:
@@ -54,7 +53,7 @@ services:
       - network.host=0.0.0.0
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
-      - D:/elastic:/usr/share/elasticsearch/data
+      - C:\Users\Attila\Documents\elastic:/usr/share/elasticsearch/data
     ulimits:
       memlock:
         soft: -1
@@ -62,7 +61,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 1g
+          memory: 500m
   #      networks:
   #        - graylog
   graylog:

@@ -1,7 +1,9 @@
 package com.restaurant.waiter.Helper;
 
 import com.restaurant.waiter.model.Status;
+import lombok.ToString;
 
+@ToString
 public class InfDTO {
     String tableGroup;
     long menuID;

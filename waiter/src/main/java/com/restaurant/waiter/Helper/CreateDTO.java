@@ -1,8 +1,10 @@
 package com.restaurant.waiter.Helper;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.ToString;
 import org.springframework.stereotype.Component;
 
+@ToString
 public class CreateDTO {
 
     long tableID;

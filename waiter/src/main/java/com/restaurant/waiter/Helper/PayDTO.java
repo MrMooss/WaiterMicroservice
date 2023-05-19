@@ -1,5 +1,10 @@
 package com.restaurant.waiter.Helper;
 
+import lombok.ToString;
+
+import javax.persistence.SequenceGenerators;
+
+@ToString
 public class PayDTO {
     long TableID;
     String tableGroup;

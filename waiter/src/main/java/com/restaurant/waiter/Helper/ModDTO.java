@@ -1,5 +1,8 @@
 package com.restaurant.waiter.Helper;
 
+import lombok.ToString;
+
+@ToString
 public class ModDTO {
 
     long MenuID;
